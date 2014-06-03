@@ -3,7 +3,6 @@
 GameState::GameState(StateStack& stack, Context context)
 : State(stack, context)
 , mWorld(*context.window)
-, mPlayer(*context.player)
 {
 }
 

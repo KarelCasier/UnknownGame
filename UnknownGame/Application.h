@@ -7,7 +7,6 @@
 #include "ResourceHolder.h"
 #include "ResourceIdentifiers.h"
 #include "StateStack.hpp"
-#include "Player.h"
 
 #include <sstream>
 
@@ -32,7 +31,6 @@ private:
 	sf::RenderWindow		mWindow;
 	TextureHolder			mTextures;
 	FontHolder				mFonts;
-	Player					mPlayer;
 
 	StateStack				mStateStack;
 

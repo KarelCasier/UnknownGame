@@ -1,8 +1,7 @@
 #pragma once
 
 #include "State.h"
-//#include "World.h"
-#include "Player.h"
+#include "World.h"
 
 class GameState : public State
 {
@@ -15,6 +14,5 @@ public:
 
 private:
 
-	//World					mWorld;
-	Player&					mPlayer;
+	World					mWorld;
 };
