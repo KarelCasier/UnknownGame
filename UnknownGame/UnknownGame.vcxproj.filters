@@ -89,7 +89,7 @@
     <ClInclude Include="SpriteObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CommandQueue.h">
+    <ClInclude Include="CommandQueue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

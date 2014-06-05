@@ -1,4 +1,4 @@
-#include "CommandQueue.h"
+#include "CommandQueue.hpp"
 #include "Entity.h"
 
 Command::Command()

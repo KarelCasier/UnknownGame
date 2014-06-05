@@ -172,7 +172,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Category.h" />
-    <ClInclude Include="CommandQueue.h" />
+    <ClInclude Include="CommandQueue.hpp" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="ResourceHolder.h" />

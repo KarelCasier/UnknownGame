@@ -18,3 +18,8 @@ void SpriteObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	states.transform *= getTransform();
 	target.draw(mSprite, states);
 }
+
+unsigned int SpriteObject::getCategory() const
+{
+	return Category::Scene;
+}

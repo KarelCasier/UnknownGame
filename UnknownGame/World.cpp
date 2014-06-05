@@ -7,6 +7,21 @@
 
 #include "iostream"
 
+struct ShipMover
+{
+	ShipMover(float vx, float vy)
+	:velocity(vx,vy)
+	{
+	}
+
+	void operator() (Ship& ship, sf::Time) const
+	{
+		ship.setVelocity(velocity);
+	}
+
+	sf::Vector2f velocity;
+};
+
 World::World(sf::RenderWindow& window)
 : mWindow(window)
 , mWorldView(window.getDefaultView())
@@ -16,8 +31,10 @@ World::World(sf::RenderWindow& window)
 	loadTextures();
 	buildScene();
 
-	// Prepare the view
-	//mWorldView.setCenter(mSpawnPosition);
+	Command testCommand;
+	testCommand.category = Category::PlayerShip;
+	testCommand.action = derivedAction<Ship>(ShipMover(100, 100));
+	mCommandQueue.push(testCommand);
 }
 
 void World::update(sf::Time dt)
@@ -25,8 +42,18 @@ void World::update(sf::Time dt)
 	//Center view on player
 	mWorldView.setCenter(mPlayerShip->getPosition());
 
-	// Apply movements
+	//Handle all commands
+	while (!mCommandQueue.isEmpty())
+	{
+		Command command = mCommandQueue.pop();
+		for (const Ptr& object : mGameObjects)
+		{
+			object->onCommand(command, dt);
+		}
+		
+	}
 
+	// Apply movements
 	for (const Ptr& object : mGameObjects)
 	{
 		object->update(dt);

@@ -13,3 +13,8 @@ void Ship::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	states.transform *= getTransform();
 	target.draw(mSprite, states);
 }
+
+unsigned int Ship::getCategory() const
+{
+	return Category::PlayerShip;
+}

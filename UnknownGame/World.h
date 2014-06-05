@@ -13,7 +13,7 @@
 #include <memory>
 #include <vector>
 
-#include "CommandQueue.h"
+#include "CommandQueue.hpp"
 #include "Entity.h"
 #include "Ship.h"
 #include "SpriteObject.h"
@@ -53,6 +53,8 @@ private:
 	TextureHolder						mTextures;
 
 	sf::FloatRect						mWorldBounds;
+
+	CommandQueue						mCommandQueue;
 
 	std::vector<Ptr>					mGameObjects;
 

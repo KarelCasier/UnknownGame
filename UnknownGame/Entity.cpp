@@ -28,3 +28,16 @@ void Entity::setVelocity(float x, float y)
 	mVelocity.x = x;
 	mVelocity.y = y;
 }
+
+unsigned int Entity::getCategory() const
+{
+	return Category::None;
+}
+
+void Entity::onCommand(Command& command, sf::Time dt)
+{
+	if (command.category & this->getCategory())
+	{
+		command.action(*this, dt);
+	}
+}
