@@ -6,8 +6,8 @@ namespace Category
 	{
 		None				= 0,
 		Scene				= 1 << 0,
-		PlayerMech			= 1 << 1,
-		EnemyMech			= 1 << 2,
+		PlayerShip			= 1 << 1,
+		EnemyShip			= 1 << 2,
 		PlayerProjectile	= 1 << 3,
 		EnemyProjectile		= 1 << 4,
 		Unknown				= 1 << 10,

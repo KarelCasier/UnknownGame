@@ -10,6 +10,13 @@
 
 #include <array>
 #include <queue>
+#include <memory>
+#include <vector>
+
+#include "CommandQueue.h"
+#include "Entity.h"
+#include "Ship.h"
+#include "SpriteObject.h"
 
 // Forward declaration
 namespace sf
@@ -20,6 +27,8 @@ namespace sf
 class World
 	: private sf::NonCopyable
 {
+	typedef std::unique_ptr<Entity> Ptr;
+
 public:
 	explicit		World(sf::RenderWindow& window);
 	void			update(sf::Time dt);
@@ -42,5 +51,11 @@ private:
 	sf::RenderWindow&					mWindow;
 	sf::View							mWorldView;
 	TextureHolder						mTextures;
+
+	sf::FloatRect						mWorldBounds;
+
+	std::vector<Ptr>					mGameObjects;
+
+	Ship*								mPlayerShip;
 
 };

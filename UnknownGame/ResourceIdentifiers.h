@@ -9,13 +9,11 @@ namespace sf
 
 enum class TextureID
 {
-	TitleScreen,
-
 	//Tiles
-	Ground,
+	WaterTile,
 
-	//Mech
-	PlayerMech,
+	//Ship
+	PlayerShip,
 };
 
 enum class FontID
