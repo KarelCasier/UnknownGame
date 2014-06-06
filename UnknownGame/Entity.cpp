@@ -47,15 +47,12 @@ void Entity::accelerate(sf::Vector2f velocity)
 	mVelocity += velocity;
 }
 
-void Entity::accelerate(float vx, float vy)
+void Entity::accelerate(float v)
 {
-	//if (abs(mVelocity.x) < mMaxSpeed)
+	if (sqrt(pow(mVelocity.x, 2) + pow(mVelocity.y, 2)) <= mMaxSpeed)
 	{
-		mVelocity.x += vx * (cos((this->getRotation() - 90) * 3.14159 / 180));
-	}
-	//if (abs(mVelocity.y) < mMaxSpeed)
-	{
-		mVelocity.y += vy * (sin((this->getRotation() - 90) * 3.14159 / 180));
+		mVelocity.x += v * (cos((this->getRotation() - 90) * 3.14159 / 180));
+		mVelocity.y += v * (sin((this->getRotation() - 90) * 3.14159 / 180));
 	}
 }
 
