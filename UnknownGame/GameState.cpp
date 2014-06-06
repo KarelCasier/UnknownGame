@@ -52,7 +52,7 @@ bool GameState::update(sf::Time dt)
 	{
 		Command accelerateCommand;
 		accelerateCommand.category = Category::PlayerShip;
-		accelerateCommand.action = derivedAction<Ship>(ShipMover(0, 100));
+		accelerateCommand.action = derivedAction<Ship>(ShipMover(10));
 		commands.push(accelerateCommand);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) //Rotate left
