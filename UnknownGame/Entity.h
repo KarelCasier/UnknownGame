@@ -25,7 +25,7 @@ public:
 	void				setVelocity(sf::Vector2f vel);
 	void				setVelocity(float x, float y);
 	void				accelerate(sf::Vector2f velocity);
-	void				accelerate(float vx, float vy);
+	void				accelerate(float v);
 	void				enableFriction();
 	void				enableGravity();
 
