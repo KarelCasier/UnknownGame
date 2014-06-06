@@ -6,6 +6,7 @@ const double Entity::GRAVITY = 200;
 
 Entity::Entity()
 : mVelocity(0.f, 0.f)
+, mMaxSpeed(200)
 , hasFriction(true)
 , hasGravity(false)
 {
@@ -51,8 +52,8 @@ void Entity::accelerate(float v)
 {
 	if (sqrt(pow(mVelocity.x, 2) + pow(mVelocity.y, 2)) <= mMaxSpeed)
 	{
-		mVelocity.x += v * (cos((this->getRotation() - 90) * 3.14159 / 180));
-		mVelocity.y += v * (sin((this->getRotation() - 90) * 3.14159 / 180));
+		mVelocity.x += v * (cos((this->getRotation() + 90) * 3.14159 / 180));
+		mVelocity.y += v * (sin((this->getRotation() + 90) * 3.14159 / 180));
 	}
 }
 

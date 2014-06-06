@@ -17,7 +17,7 @@ struct ShipMover
 
 struct ShipRotater
 {
-	ShipRotater(int a)
+	ShipRotater(float a)
 	:angle(a)
 	{
 	}
@@ -27,7 +27,7 @@ struct ShipRotater
 		ship.rotate(angle);
 	}
 
-	int angle;
+	float angle;
 };
 
 
@@ -52,21 +52,21 @@ bool GameState::update(sf::Time dt)
 	{
 		Command accelerateCommand;
 		accelerateCommand.category = Category::PlayerShip;
-		accelerateCommand.action = derivedAction<Ship>(ShipMover(10));
+		accelerateCommand.action = derivedAction<Ship>(ShipMover(2));
 		commands.push(accelerateCommand);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) //Rotate left
 	{
 		Command rotateCommand;
 		rotateCommand.category = Category::PlayerShip;
-		rotateCommand.action = derivedAction<Ship>(ShipRotater(-3));
+		rotateCommand.action = derivedAction<Ship>(ShipRotater(-.3));
 		commands.push(rotateCommand);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) //Rotate right
 	{
 		Command rotateCommand;
 		rotateCommand.category = Category::PlayerShip;
-		rotateCommand.action = derivedAction<Ship>(ShipRotater(3));
+		rotateCommand.action = derivedAction<Ship>(ShipRotater(.3));
 		commands.push(rotateCommand);
 	}
 	
@@ -80,8 +80,8 @@ bool GameState::handleEvent(const sf::Event& event)
 	CommandQueue& commands = mWorld.getCommandQueue();
 	//mPlayer.handleEvent(event, commands);
 
-	// Escape pressed, trigger the pause screen
-	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+	// P pressed, trigger the pause screen
+	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::P)
 		requestStackPush(StateID::Pause);
 
 	return true;

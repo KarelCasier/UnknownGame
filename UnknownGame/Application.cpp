@@ -6,7 +6,7 @@
 // #include "TitleState.h"
 #include "GameState.h"
 // #include "MenuState.h"
-// #include "PauseState.h"
+#include "PauseState.h"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f); // = 0.6 seconds per frame, therefore 60fps
 
@@ -114,5 +114,5 @@ void Application::registerStates()
 	//mStateStack.registerState<TitleState>(StateID::Title);
 	//mStateStack.registerState<MenuState>(StateID::Menu);
 	mStateStack.registerState<GameState>(StateID::Game);
-	//mStateStack.registerState<PauseState>(StateID::Pause);
+	mStateStack.registerState<PauseState>(StateID::Pause);
 }
