@@ -2,17 +2,17 @@
 
 struct ShipMover
 {
-	ShipMover(float vx, float vy)
-	:velocity(vx, vy)
+	ShipMover(float v)
+	:speed(v)
 	{
 	}
 
 	void operator() (Ship& ship, sf::Time) const
 	{
-		ship.accelerate(velocity);
+		ship.accelerate(speed);
 	}
 
-	sf::Vector2f velocity;
+	float speed;
 };
 
 struct ShipRotater
