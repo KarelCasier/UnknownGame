@@ -1,6 +1,7 @@
 #include "Ship.h"
 #include "Utility.hpp"
 
+
 Ship::Ship(const TextureHolder& textures)
 {
 	mSprite.setTexture(textures.get(TextureID::PlayerShip));

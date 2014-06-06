@@ -7,21 +7,6 @@
 
 #include "iostream"
 
-struct ShipMover
-{
-	ShipMover(float vx, float vy)
-	:velocity(vx,vy)
-	{
-	}
-
-	void operator() (Ship& ship, sf::Time) const
-	{
-		ship.setVelocity(velocity);
-	}
-
-	sf::Vector2f velocity;
-};
-
 World::World(sf::RenderWindow& window)
 : mWindow(window)
 , mWorldView(window.getDefaultView())
@@ -30,11 +15,6 @@ World::World(sf::RenderWindow& window)
 {
 	loadTextures();
 	buildScene();
-
-	Command testCommand;
-	testCommand.category = Category::PlayerShip;
-	testCommand.action = derivedAction<Ship>(ShipMover(100, 100));
-	mCommandQueue.push(testCommand);
 }
 
 void World::update(sf::Time dt)
@@ -96,4 +76,9 @@ void World::buildScene()
 	mPlayerShip = playerShip.get();
 	mGameObjects.push_back(std::move(playerShip));
 
+}
+
+CommandQueue& World::getCommandQueue()
+{
+	return mCommandQueue;
 }

@@ -22,11 +22,22 @@ public:
 
 	void					onCommand(Command& command, sf::Time dt);
 
-	void					setVelocity(sf::Vector2f vel);
-	void					setVelocity(float x, float y);
+	void				setVelocity(sf::Vector2f vel);
+	void				setVelocity(float x, float y);
+	void				accelerate(sf::Vector2f velocity);
+	void				accelerate(float vx, float vy);
+	void				enableFriction();
+	void				enableGravity();
+
+	sf::Vector2f		getVelocity() const;
 
 private:
 
-	sf::Vector2f			mVelocity;
-	float					mFriction;
+	static const double	FRICTION;
+	static const double	GRAVITY;
+
+	float				mMaxSpeed;
+	sf::Vector2f		mVelocity;
+	bool				hasFriction;
+	bool				hasGravity;
 };
