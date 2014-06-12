@@ -14,6 +14,9 @@ enum class TextureID
 
 	//Ship
 	PlayerShip,
+
+	//Projectile
+	CannonBall,
 };
 
 enum class FontID

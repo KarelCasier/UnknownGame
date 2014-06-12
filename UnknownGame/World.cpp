@@ -59,6 +59,9 @@ void World::loadTextures()
 	//Water
 	mTextures.load(TextureID::WaterTile, "assets/textures/WaterTile.png");
 
+	//Projectile
+	mTextures.load(TextureID::CannonBall, "assets/textures/CannonBall.png");
+
 }
 
 void World::buildScene()

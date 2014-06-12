@@ -30,6 +30,13 @@ void Entity::update(sf::Time dt)
 		mVelocity.y += GRAVITY * dt.asSeconds();
 	}
 	move(mVelocity * dt.asSeconds());
+
+	updateSelf(dt);
+}
+
+void Entity::updateSelf(sf::Time dt)
+{
+	//Overridden in derived class
 }
 
 void Entity::setVelocity(sf::Vector2f vel)

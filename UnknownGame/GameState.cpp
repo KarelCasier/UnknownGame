@@ -30,6 +30,18 @@ struct ShipRotater
 	float angle;
 };
 
+struct ShipAttack
+{
+	ShipAttack()
+	{
+	}
+
+	void operator() (Ship& ship, sf::Time) const
+	{
+		ship.attack();
+	}
+};
+
 
 GameState::GameState(StateStack& stack, Context context)
 : State(stack, context)
@@ -68,6 +80,13 @@ bool GameState::update(sf::Time dt)
 		rotateCommand.category = Category::PlayerShip;
 		rotateCommand.action = derivedAction<Ship>(ShipRotater(.3));
 		commands.push(rotateCommand);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) //Fire
+	{
+		Command fireCommand;
+		fireCommand.category = Category::PlayerShip;
+		fireCommand.action = derivedAction<Ship>(ShipAttack());
+		commands.push(fireCommand);
 	}
 	
 

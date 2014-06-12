@@ -17,6 +17,7 @@ public:
 
 	virtual void			draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	virtual void			update(sf::Time dt);
+	virtual void			updateSelf(sf::Time dt);
 
 	virtual unsigned int	getCategory() const;
 
