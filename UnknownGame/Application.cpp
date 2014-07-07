@@ -11,7 +11,7 @@
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f); // = 0.6 seconds per frame, therefore 60fps
 
 Application::Application()
-: mWindow(sf::VideoMode(1280, 720), "Game Practice", sf::Style::Close)
+: mWindow(sf::VideoMode(1280, 720), "Sonar Battles", sf::Style::Close)
 , mTextures()
 , mFonts()
 , mStateStack(State::Context(mWindow, mTextures, mFonts))
