@@ -28,7 +28,9 @@ public:
 	void				accelerate(sf::Vector2f velocity);
 	void				accelerate(float v);
 	void				enableFriction();
+	void				disableFriction();
 	void				enableGravity();
+	void				disableGravity();
 
 	sf::Vector2f		getVelocity() const;
 

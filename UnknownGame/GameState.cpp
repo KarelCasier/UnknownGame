@@ -38,7 +38,7 @@ struct ShipAttack
 
 	void operator() (Ship& ship, sf::Time) const
 	{
-		ship.attack();
+		ship.fire();
 	}
 };
 

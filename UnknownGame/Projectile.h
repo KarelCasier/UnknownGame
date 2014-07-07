@@ -14,6 +14,7 @@ public:
 	virtual void			updateSelf(sf::Time dt);
 
 	void					destroy();
+	sf::Time				getLifeTime() const;
 
 private:
 

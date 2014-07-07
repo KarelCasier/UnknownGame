@@ -87,7 +87,17 @@ void Entity::enableFriction()
 	hasFriction = true;
 }
 
+void Entity::disableFriction()
+{
+	hasFriction = false;
+}
+
 void Entity::enableGravity()
 {
 	hasGravity = true;
+}
+
+void Entity::disableGravity()
+{
+	hasGravity = false;
 }

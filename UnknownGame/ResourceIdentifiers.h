@@ -12,8 +12,12 @@ enum class TextureID
 	//Tiles
 	WaterTile,
 
-	//Ship
+	//Ships
 	PlayerShip,
+	PlayerShipShadow,
+
+	EnemyShip,
+	EnemyShipShadow,
 
 	//Projectile
 	CannonBall,

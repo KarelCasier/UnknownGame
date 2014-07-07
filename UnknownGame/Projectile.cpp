@@ -1,11 +1,13 @@
 #include "Projectile.h"
 #include "Ship.h"
+#include "Utility.hpp"
 
 Projectile::Projectile(Ship& parent, const sf::Texture& texture, sf::Vector2f position, sf::Time life)
 : mParent(parent)
 , mSprite(texture)
 , mLife(life)
 {
+	centerOrigin(mSprite);
 	setPosition(position);
 }
 
@@ -23,11 +25,19 @@ unsigned int Projectile::getCategory() const
 void Projectile::updateSelf(sf::Time dt)
 {
 	mLife -= dt;
-	if (mLife <= sf::seconds(0))
+	if (mLife <= sf::seconds(0)) //Handled by ship class
+	{
+		setVelocity(0.f, 0.f);
 		destroy();
+	}
+}
+
+sf::Time Projectile::getLifeTime() const
+{
+	return mLife;
 }
 
 void Projectile::destroy()
 {
-	mParent.destroy(this);
+	mParent.destroyProjectile(this);
 }

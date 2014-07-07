@@ -22,7 +22,7 @@ void World::update(sf::Time dt)
 	//Center view on player
 	mWorldView.setCenter(mPlayerShip->getPosition());
 
-	//Handle all commands
+	//Handle player commands
 	while (!mCommandQueue.isEmpty())
 	{
 		Command command = mCommandQueue.pop();
@@ -38,6 +38,7 @@ void World::update(sf::Time dt)
 	{
 		object->update(dt);
 	}
+
 }
 
 void World::draw()
@@ -55,6 +56,11 @@ void World::loadTextures()
 {
 	//Player
 	mTextures.load(TextureID::PlayerShip, "assets/textures/PlayerShip.png");
+	mTextures.load(TextureID::PlayerShipShadow, "assets/textures/PlayerShipShadow.png");
+
+	//Enemy
+	mTextures.load(TextureID::EnemyShip, "assets/textures/EnemyShip.png");
+	mTextures.load(TextureID::EnemyShipShadow, "assets/textures/EnemyShipShadow.png");
 
 	//Water
 	mTextures.load(TextureID::WaterTile, "assets/textures/WaterTile.png");
@@ -75,9 +81,12 @@ void World::buildScene()
 	std::unique_ptr<SpriteObject> waterSprite(new SpriteObject(waterTexture, waterTextureRectangle));
 	mGameObjects.push_back(std::move(waterSprite)); //Move ownership to vector
 
-	std::unique_ptr<Ship> playerShip(new Ship(mTextures));
+	std::unique_ptr<Ship> playerShip(new Ship(mTextures, Ship::TypeID::Player));
 	mPlayerShip = playerShip.get();
 	mGameObjects.push_back(std::move(playerShip));
+
+	std::unique_ptr<Ship> enemyShip(new Ship(mTextures, Ship::TypeID::Enemy));
+	mGameObjects.push_back(std::move(enemyShip));
 
 }
 
